@@ -15,12 +15,6 @@ fetch('wiersze.json')
             audio.src = `/audio/${fileName}`;
             figure.appendChild(audio);
 
-            const downloadLink = document.createElement('a');
-            downloadLink.classList.add('download-audio');
-            downloadLink.href = `/audio/${fileName}`;
-            downloadLink.textContent = 'Download audio';
-            figure.appendChild(downloadLink);
-
             // Dodaj element figure do dokumentu (np. do body lub innego kontenera)
             document.body.appendChild(figure);
         }
