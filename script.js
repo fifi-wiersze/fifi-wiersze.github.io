@@ -4,6 +4,7 @@ fetch('wiersze.json')
     .then(wiersze => {
         // Dla każdego elementu w JSON generuj blok HTML
         for (const [name, fileName] of Object.entries(wiersze)) {
+            const figure = document.createElement('figure');
             figure.classList.add('custom-figure');
 
             const figcaption = document.createElement('figcaption');

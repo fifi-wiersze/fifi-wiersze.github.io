@@ -8,8 +8,22 @@ figure {
     padding: 10px;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
-    width: 20%;
-    justify-content: center;
+    width: 90%; /* Zmienione z 20% na 90% dla urządzeń mobilnych */
+    max-width: 600px; /* Maksymalna szerokość dla większych ekranów */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    figure {
+        width: 45%; /* 45% dla średnich ekranów */
+    }
+}
+
+@media (min-width: 1024px) {
+    figure {
+        width: 20%; /* Powrót do oryginalnych 20% dla dużych ekranów */
+    }
 }
 
 figcaption {
