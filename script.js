@@ -4,7 +4,7 @@ fetch('wiersze.json')
     .then(wiersze => {
         // Dla każdego elementu w JSON generuj blok HTML
         for (const [name, fileName] of Object.entries(wiersze)) {
-            const figure = document.createElement('figure');
+            figure.classList.add('custom-figure');
 
             const figcaption = document.createElement('figcaption');
             figcaption.textContent = name;
@@ -16,6 +16,7 @@ fetch('wiersze.json')
             figure.appendChild(audio);
 
             const downloadLink = document.createElement('a');
+            downloadLink.classList.add('download-audio');
             downloadLink.href = `/audio/${fileName}`;
             downloadLink.textContent = 'Download audio';
             figure.appendChild(downloadLink);
