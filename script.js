@@ -1,3 +1,5 @@
+let isAutoplayEnabled = false;
+
 // Wczytaj plik JSON znajdujący się w tym samym katalogu co skrypt
 fetch('poems-info.json')
     .then(response => response.json())
@@ -48,9 +50,11 @@ fetch('poems-info.json')
             });
 
             audio.addEventListener('ended', () => {
-                let nextIndex = audioElements.indexOf(audio) + 1;
-                if (nextIndex < audioElements.length) {
-                    audioElements[nextIndex].play();
+                if (isAutoplayEnabled) {
+                    let nextIndex = audioElements.indexOf(audio) + 1;
+                    if (nextIndex < audioElements.length) {
+                        audioElements[nextIndex].play();
+                    }
                 }
             });
 
@@ -59,3 +63,8 @@ fetch('poems-info.json')
         }
     })
     .catch(error => console.error('Error loading JSON:', error));
+
+const checkbox = document.getElementById("autoplay-checkbox");
+checkbox.addEventListener("change", () => {
+    isAutoplayEnabled = !isAutoplayEnabled;
+});
